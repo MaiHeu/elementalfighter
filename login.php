@@ -1,24 +1,29 @@
 <?php
 include("DatabaseHandler.php");
+include("classes\Benutzer.php");
 $conn = connectToDatabase();
+$benutzer = new Benutzer();
 
-function retrieveBenutzer($username, $conn)
-{
-    $statement = $conn->prepare("SELECT * FROM Benutzer WHERE Name = ?");
-    $statement->execute([$username]);
-    $statement->setFetchMode(PDO::FETCH_CLASS, "Benutzer", []);
-    return $statement->fetch();
-}
+if(isset($_GET['login'])){
+    $benutzer = $benutzer->retrieveBenutzer($_POST["inputBenutzername"], $conn);
 
+    if(password_verify($_POST["inputPasswort"], $benutzer->passwort)) {
+        setcookie("ID", "$benutzer->id", null, '/');
+        setcookie("Name", "$benutzer->username", null, '/');
+        print("Erfolgreich!");
+    } else {
+        print("Passwort falsch!");
+        print($benutzer->toString());
+    }
+} else{ //anfang von else
 ?>
 
-<!DOCTYPE html>
-<html>
-    <body>
-        <form action="login.php" method="POST">
-            <p>Benutzername:<input type="text" name="benutzername">
-            Passwort: <input type="password" name="passwort">
-                <button type="submit" name="login">Login</button></p>
-        </form>
-    </body>
-</html>
+<form action="?login=1" method="POST">
+    <p>Benutzername:<input type="text" name="inputBenutzername">
+    Passwort: <input type="password" name="inputPasswort">
+        <button type="submit" name="login">Login</button></p>
+</form>
+
+<?php
+} //ende von else
+?>
