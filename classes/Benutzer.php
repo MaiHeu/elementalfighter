@@ -8,13 +8,14 @@ class Benutzer
 
     public function retrieveBenutzer($username, $conn)
     {
-        print("In der funktion retrieve Benutzer");
+        print("In der funktion retrieve Benutzer <br />");
         $statement = $conn->prepare("SELECT `BenutzerID`, `Name`, `Passwort` FROM Benutzer WHERE Name = ?");
-        $statement->execute([$username]);
         $statement->setFetchMode(PDO::FETCH_CLASS, "Benutzer", []);
+        $statement->execute([$username]);
         $result = $statement->fetch();
         print_r($result);
-        return $statement->fetch();
+        printf("<br />");
+        return $result;
     }
 
     public function toString()

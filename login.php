@@ -6,6 +6,7 @@ $benutzer = new Benutzer();
 
 if(isset($_GET['login'])){
     $benutzer = $benutzer->retrieveBenutzer($_POST["inputBenutzername"], $conn);
+    print_r($benutzer);
 
     if(password_verify($_POST["inputPasswort"], $benutzer->passwort)) {
         setcookie("ID", "$benutzer->id", null, '/');
@@ -13,7 +14,6 @@ if(isset($_GET['login'])){
         print("Erfolgreich!");
     } else {
         print("Passwort falsch!");
-        print($benutzer->toString());
     }
 } else{ //anfang von else
 ?>
