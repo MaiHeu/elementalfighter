@@ -1,29 +1,45 @@
+<h1>Register your account!</h1>
+hot babes r absolutely waiting for u mah m8
+
+
 <?php
+
 include("DatabaseHandler.php");
-include("classes\Benutzer.php");
-$conn = connectToDatabase();
-$benutzer = new Benutzer();
 
-if(isset($_GET['login'])){
-    $benutzer = $benutzer->retrieveBenutzer($_POST["inputBenutzername"], $conn);
-    print_r($benutzer);
+if (isset($_GET['login'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    if(password_verify($_POST["inputPasswort"], $benutzer->passwort)) {
-        setcookie("ID", "$benutzer->id", null, '/');
-        setcookie("Name", "$benutzer->username", null, '/');
-        print("Erfolgreich!");
-    } else {
-        print("Passwort falsch!");
-    }
-} else{ //anfang von else
+        session_start();
+        $sql = connectToDatabase();
+        $sql_statement = "SELECT Passwort FROM benutzer;";
+
+        $sql_result = $sql->query($sql_statement);
+
+        if ($sql->query($sql_statement) == FALSE) {
+            echo "ERROR COMPLICATED_DATABASE_CONNECTION_ERROR";
+        } else {
+            
+            print_r($sql_result);
+  //          if(password_verify(password, ))
+
+        }
+} else {
 ?>
 
-<form action="?login=1" method="POST">
-    <p>Benutzername:<input type="text" name="inputBenutzername">
-    Passwort: <input type="password" name="inputPasswort">
-        <button type="submit" name="login">Login</button></p>
-</form>
+    <form action="?login=1" method="post">
+        Benutzername:
+        <input type="username" size="40" maxlength="250" name="username"><br><br>
+        <br>
+
+        Passwort:
+        <input type="password" size="40" maxlength="250" name="password"><br>
+        <br>
+
+        <input type="submit" value="Einloggen">
+        <br>
+    </form>
 
 <?php
-} //ende von else
+}  //ENDE DER IF ISSET VOM ANFANG
 ?>
