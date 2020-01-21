@@ -4,19 +4,18 @@ hot babes r absolutely waiting for u mah m8
 
 <?php
 
+include("DatabaseHandler.php");
 function retrieveBenutzer($username, $conn)
 {
     print("In der funktion retrieve Benutzer <br />");
     $statement = $conn->prepare("SELECT `BenutzerID`, `Name`, `Passwort` FROM Benutzer WHERE Name = ?");
+    $statement->setFetchMode(PDO::FETCH_CLASS, "Benutzer", []);
     $statement->execute([$username]);
     $result = $statement->fetch();
     print_r($result);
     printf("<br />");
     return $result;
 }
-
-
-include("DatabaseHandler.php");
 
 if (isset($_GET['login'])) {
     $username = $_POST['username'];
@@ -33,6 +32,17 @@ if (isset($_GET['login'])) {
     } else {
 
         print_r($sql_result);
+
+        $benutzer = retrieveBenutzer($_POST["username"], $sql);
+
+        if(password_verify($password, $benutzer[2]))
+        {
+            print_r("Du bist drin du Spaten");
+            setcookie("ID", "$benutzer[0]", null, '/');
+            setcookie("Name", "$benutzer[2]", null, '/');
+        }
+
+//            print_r($result);
         //          if(password_verify(password, ))
 
     }
@@ -52,6 +62,6 @@ if (isset($_GET['login'])) {
         <br>
     </form>
 
-    <?php
+<?php
 }  //ENDE DER IF ISSET VOM ANFANG
 ?>
