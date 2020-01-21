@@ -17,47 +17,27 @@ function retrieveBenutzer($username, $conn)
 
 
 include("DatabaseHandler.php");
-function retrieveBenutzer($username, $conn)
-    {
-        print("In der funktion retrieve Benutzer <br />");
-        $statement = $conn->prepare("SELECT `BenutzerID`, `Name`, `Passwort` FROM Benutzer WHERE Name = ?");
-        $statement->setFetchMode(PDO::FETCH_CLASS, "Benutzer", []);
-        $statement->execute([$username]);
-        $result = $statement->fetch();
-        print_r($result);
-        printf("<br />");
-        return $result;
-    }
 
 if (isset($_GET['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-        session_start();
-        $sql = connectToDatabase();
-        $sql_statement = "SELECT Passwort FROM benutzer;";
+    session_start();
+    $sql = connectToDatabase();
+    $sql_statement = "SELECT Passwort FROM benutzer;";
 
-        $sql_result = $sql->query($sql_statement);
+    $sql_result = $sql->query($sql_statement);
 
-        if ($sql->query($sql_statement) == FALSE) {
-            echo "ERROR COMPLICATED_DATABASE_CONNECTION_ERROR";
-        } else {
-        
-            $benutzer = retrieveBenutzer($_POST["username"], $sql);
+    if ($sql->query($sql_statement) == FALSE) {
+        echo "ERROR COMPLICATED_DATABASE_CONNECTION_ERROR";
+    } else {
 
-            if(password_verify($password, $benutzer[2]))
-            {
-                print_r("Du bist drin du Spaten");
-                setcookie("ID", "$benutzer[0]", null, '/');
-                setcookie("Name", "$benutzer[2]", null, '/');
-            }
-        
-//            print_r($result);
-  //          if(password_verify(password, ))
+        print_r($sql_result);
+        //          if(password_verify(password, ))
 
-        }
+    }
 } else {
-?>
+    ?>
 
     <form action="?login=1" method="post">
         Benutzername:
@@ -72,6 +52,6 @@ if (isset($_GET['login'])) {
         <br>
     </form>
 
-<?php
+    <?php
 }  //ENDE DER IF ISSET VOM ANFANG
 ?>
