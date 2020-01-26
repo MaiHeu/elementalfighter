@@ -3,10 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 03. Jan 2020 um 12:03
+-- Erstellungszeit: 27. Jan 2020 um 00:32
 -- Server-Version: 10.1.37-MariaDB
 -- PHP-Version: 7.2.12
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -57,13 +58,29 @@ CREATE TABLE `Charakter` (
 -- --------------------------------------------------------
 
 --
+-- Tabellenstruktur für Tabelle `Message`
+--
+
+CREATE TABLE `Message` (
+  `MessageID` int(11) NOT NULL,
+  `SenderNr` int(11) NOT NULL,
+  `EmpfängerNr` int(11) NOT NULL,
+  `Datum` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Betreff` text COLLATE latin1_german1_ci NOT NULL,
+  `Nachricht` text COLLATE latin1_german1_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Tabellenstruktur für Tabelle `Wertnamen`
 --
 
 CREATE TABLE `Wertnamen` (
   `WertnamenID` int(11) NOT NULL,
   `Name` varchar(50) COLLATE latin1_german1_ci NOT NULL,
-  `Tägl. Training` double NOT NULL
+  `Tägl. Training` double NOT NULL,
+  `Startwert` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
 
 -- --------------------------------------------------------
@@ -99,6 +116,14 @@ ALTER TABLE `Charakter`
   ADD KEY `Eingetr. Training` (`Eingetr. Training`);
 
 --
+-- Indizes für die Tabelle `Message`
+--
+ALTER TABLE `Message`
+  ADD PRIMARY KEY (`MessageID`),
+  ADD KEY `messageBenutzer_sender_fk` (`SenderNr`),
+  ADD KEY `messageBenutzer_empfaenger_fk` (`EmpfängerNr`);
+
+--
 -- Indizes für die Tabelle `Wertnamen`
 --
 ALTER TABLE `Wertnamen`
@@ -109,6 +134,7 @@ ALTER TABLE `Wertnamen`
 -- Indizes für die Tabelle `ZO_CharakterWerte`
 --
 ALTER TABLE `ZO_CharakterWerte`
+  ADD PRIMARY KEY (`CharakterWerteID`),
   ADD UNIQUE KEY `UNQ_CharakterWerte_CharakterWertnamen` (`WertnamenNR`,`CharakterNR`),
   ADD KEY `CharakterNR` (`CharakterNR`);
 
@@ -129,10 +155,22 @@ ALTER TABLE `Charakter`
   MODIFY `CharakterID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT für Tabelle `Message`
+--
+ALTER TABLE `Message`
+  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT für Tabelle `Wertnamen`
 --
 ALTER TABLE `Wertnamen`
   MODIFY `WertnamenID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT für Tabelle `ZO_CharakterWerte`
+--
+ALTER TABLE `ZO_CharakterWerte`
+  MODIFY `CharakterWerteID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints der exportierten Tabellen
@@ -146,11 +184,19 @@ ALTER TABLE `Charakter`
   ADD CONSTRAINT `charakter_ibfk_2` FOREIGN KEY (`Eingetr. Training`) REFERENCES `Wertnamen` (`WertnamenID`);
 
 --
+-- Constraints der Tabelle `Message`
+--
+ALTER TABLE `Message`
+  ADD CONSTRAINT `messageBenutzer_empfaenger_fk` FOREIGN KEY (`EmpfängerNr`) REFERENCES `Benutzer` (`BenutzerID`) ON DELETE NO ACTION,
+  ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`SenderNr`) REFERENCES `Benutzer` (`BenutzerID`) ON DELETE NO ACTION;
+
+--
 -- Constraints der Tabelle `ZO_CharakterWerte`
 --
 ALTER TABLE `ZO_CharakterWerte`
   ADD CONSTRAINT `zo_charakterwerte_ibfk_1` FOREIGN KEY (`CharakterNR`) REFERENCES `Charakter` (`CharakterID`),
   ADD CONSTRAINT `zo_charakterwerte_ibfk_2` FOREIGN KEY (`WertnamenNR`) REFERENCES `Wertnamen` (`WertnamenID`);
+SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
