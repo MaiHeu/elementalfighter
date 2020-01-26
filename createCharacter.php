@@ -5,16 +5,15 @@ if (isset($_GET['create'])) {
     $con = connectToDatabase();
     $statement = $con->prepare("INSERT INTO `Charakter` (`BenutzerNR`, `Name`, `Bildlink`, `Geschlecht`) VALUES(?, ?, ?, ?);");
     $statement->execute($givenData);
+    $con = 0;
+    echo "<p>Erstellung erfolgreich. <a href='index.php'>Klicke hier um zur Hauptseite zurückzukehren.</a></p>";
 } else {
-?>
+    ?>
     <form action="?create=1" method="post">
         <h2 class="text-center">Erstellung</h2>
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Charaktername" name="charaktername" required="required">
         </div>
-        <!--        <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Geburtstag" name="geburtstag" required="required">
-                </div> --!>
         <div class="form-group">
             <input type="radio" name="geschlecht" value="m" required="required">männlich
             <input type="radio" name="geschlecht" value="w" required="required">Weiblich
