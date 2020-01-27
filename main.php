@@ -54,7 +54,7 @@ if (isset($_GET['text'])) {
 			<li class="nav-item dropdown">
 				<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"> <?php echo "$_COOKIE[NAME]"; ?> <b class="caret"></b></a>
 				<ul class="dropdown-menu">
-					<li><a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profil</a></li>
+					<li><a href="benutzerloeschen.php" class="dropdown-item"><i class="fa fa-user-o"></i> Profil löschen</a></li>
 					<li><a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Einstellungen</a></li>
 					<li class="divider dropdown-divider"></li>
 					<li><a href="login.php" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></li>
