@@ -2,10 +2,10 @@
 	.login-form {
 		width: 340px;
         margin: 50px auto;
-	}
+    }
     .login-form form {
     	margin-bottom: 15px;
-        background: #222222;
+        background: #ffffff;
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
         padding: 30px;
     }
@@ -20,3 +20,149 @@
         font-size: 15px;
         font-weight: bold;
     }
+
+	.message-form {
+		width: 90%;
+        margin: 50px auto;
+	}
+    .message-form form {
+    	margin-bottom: 15px;
+        background: #ffffff;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .message-form h2 {
+        margin: 0 0 15px;
+    }
+    .message-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+
+	.messageAct-form {
+		width: 70%;
+        margin: 25px auto;
+	}
+    .messageAct-form form {
+    	margin-bottom: 15px;
+        background: #ffffff;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .messageAct-form h2 {
+        margin: 0 0 15px;
+    }
+    .messageAct-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+
+	body{
+		background: #84DCC6;
+		font-family: 'Varela Round', sans-serif;
+	}
+    .form-inline {
+        display: inline-block;
+    }
+	.navbar-header.col {
+		padding: 0 !important;
+	}	
+	.navbar {
+		color: #fff;
+		background: #222222;
+		padding: 5px 16px;
+		border-radius: 0;
+		border: none;
+		box-shadow: 0 0 4px rgba(0,0,0,.1);
+	}
+	.navbar img {
+		border-radius: 50%;
+		width: 36px;
+		height: 36px;
+		margin-right: 10px;
+	}   
+	.navbar .navbar-brand {
+		color: #efe5ff;
+		padding-left: 0;
+		padding-right: 50px;
+		font-size: 24px;		
+	}
+	.navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
+		color: #fff;
+	}
+	.navbar .navbar-brand i {
+		font-size: 25px;
+		margin-right: 5px;
+	}
+	.navbar .nav-item span {
+		position: relative;
+		top: 3px;
+	}
+	.navbar .nav > li a {
+		color: #efe5ff;
+		padding: 8px 15px;
+		font-size: 14px;		
+	}
+	.navbar .nav > li a:hover, .navbar .nav > li a:focus {
+		color: #fff;
+		text-shadow: 0 0 4px rgba(255,255,255,0.3);
+	}
+	.navbar .nav > li > a > i {
+		display: block;
+		text-align: center;
+	}
+	.navbar .dropdown-item i {
+		font-size: 16px;
+		min-width: 22px;
+	}
+    .navbar .dropdown-item .material-icons {
+        font-size: 21px;
+        line-height: 16px;
+        vertical-align: middle;
+        margin-top: -2px;
+    }
+	.navbar .nav-item.open > a, .navbar .nav-item.open > a:hover, .navbar .nav-item.open > a:focus {
+		color: #fff;
+		background: none !important;
+	}
+	.navbar .dropdown-menu {
+		border-radius: 1px;
+		border-color: #e5e5e5;
+		box-shadow: 0 2px 8px rgba(0,0,0,.05);
+	}
+	.navbar .dropdown-menu li a {
+		color: #777 !important;
+		padding: 8px 20px;
+		line-height: normal;
+	}
+	.navbar .dropdown-menu li a:hover, .navbar .dropdown-menu li a:focus {
+		color: #333 !important;
+		background: transparent !important;
+	}
+	.navbar .nav .active a, .navbar .nav .active a:hover, .navbar .nav .active a:focus {
+		color: #fff;
+		text-shadow: 0 0 4px rgba(255,255,255,0.2);
+		background: transparent !important;
+	}
+	.navbar .nav .user-action {
+		padding: 9px 15px;
+	}
+	.navbar .navbar-toggle {
+		border-color: #fff;
+	}
+	.navbar .navbar-toggle .icon-bar {
+		background: #fff;
+	}
+	.navbar .navbar-toggle:focus, .navbar .navbar-toggle:hover {
+		background: transparent;
+	}
+	.navbar .navbar-nav .open .dropdown-menu {
+		background: #faf7fd;
+		border-radius: 1px;
+		border-color: #faf7fd;
+		box-shadow: 0 2px 8px rgba(0,0,0,.05);
+	}
+	.navbar .divider {
+		background-color: #e9ecef !important;
+	}
+

@@ -29,7 +29,7 @@ if (isset($_GET['register'])) {
             ?>
                 
             <div class="login-form">
-                <form action="main.html">
+                <form action="login.php">
                     <h2 class="text-center">Registrierung abgeschlossen!</h2>       
                     <div class="form-group">
                         <button class="btn btn-primary btn-block">Weiter</button>
