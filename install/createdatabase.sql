@@ -58,6 +58,7 @@ CREATE TABLE `Charakter` (
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Tabellenstruktur für Tabelle `Message`
 --
 
@@ -70,6 +71,29 @@ CREATE TABLE `Message` (
   `Nachricht` text COLLATE latin1_german1_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
 
+=======
+-- Tabellenstruktur für Tabelle `Charakter`
+-- eventuell fehlerhaft?
+
+CREATE TABLE `elementalfighter`.`Message` (
+  `MessageID` INT NOT NULL AUTO_INCREMENT ,
+  `SenderNr` INT NOT NULL ,
+  `EmpfängerNr` INT NOT NULL ,
+  `Datum` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  `Betreff` TEXT NOT NULL ,
+  `Nachricht` TEXT NOT NULL ,
+  PRIMARY KEY (`MessageID`) ,
+  INDEX messageBenutzer_sender_fk (SenderNr),
+  FOREIGN KEY (SenderNr)
+    REFERENCES Benutzer(BenutzerID)
+    ON DELETE NO ACTION
+) ENGINE = InnoDB;
+
+ALTER TABLE Message
+    ADD CONSTRAINT messageBenutzer_empfaenger_fk FOREIGN KEY (`EmpfängerNr`) REFERENCES `Benutzer`(`BenutzerID`)
+    ON DELETE NO ACTION
+;
+>>>>>>> origin/Max-Notebook
 -- --------------------------------------------------------
 
 --
