@@ -19,6 +19,10 @@ function retrieveBenutzer($username, $conn)
     return $result;
 }
 
+// Setze Cookies zurück
+setcookie("ID", "", null, '/');
+setcookie("NAME", "", null, '/');
+
 if (isset($_GET['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -38,7 +42,7 @@ if (isset($_GET['login'])) {
             if(password_verify($password, $benutzer[2]))
             {
                 setcookie("ID", "$benutzer[0]", null, '/');
-                setcookie("Name", "$benutzer[2]", null, '/');
+                setcookie("NAME", "$username", null, '/');
                 ?>
                 
 <div class="login-form">

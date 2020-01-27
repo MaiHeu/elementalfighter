@@ -18,7 +18,12 @@
 
 include("DatabaseHandler.php");
 
-
+if(isset( $_COOKIE['ID']) == FALSE)
+{
+	?>
+		<script> window.open("login.php","_self"); </script>
+	<?php
+}
 
 if (isset($_GET['text'])) {
 
@@ -47,12 +52,12 @@ if (isset($_GET['text'])) {
 			<li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-gears"></i><span>Training</span></a></li>
 			<li class="nav-item"><a href="messages.php" target="main_frame" class="nav-link"><i class="fa fa-envelope"></i><span>Nachrichten</span></a></li>
 			<li class="nav-item dropdown">
-				<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"> Benutzer <b class="caret"></b></a>
+				<a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"> <?php echo "$_COOKIE[NAME]"; ?> <b class="caret"></b></a>
 				<ul class="dropdown-menu">
 					<li><a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profil</a></li>
 					<li><a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Einstellungen</a></li>
 					<li class="divider dropdown-divider"></li>
-					<li><a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></li>
+					<li><a href="login.php" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></li>
 				</ul>
 			</li>
 		</ul>
