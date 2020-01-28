@@ -1,3 +1,6 @@
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <?php
 include("DatabaseHandler.php");
 if (isset($_GET['create'])) {
@@ -28,15 +31,18 @@ if (isset($_GET['create'])) {
     echo "<p>Erstellung erfolgreich. <a href='index.php'>Klicke hier um zur Hauptseite zurückzukehren.</a></p>";
 } else {
     ?>
+<div class="login-form">
     <form action="?create=1" method="post">
         <h2 class="text-center">Erstellung</h2>
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Charaktername" name="charaktername" required="required">
         </div>
+        <center>
         <div class="form-group">
-            <input type="radio" name="geschlecht" value="m" required="required">männlich
-            <input type="radio" name="geschlecht" value="w" required="required">Weiblich
+            <input type="radio" name="geschlecht" value="m" required="required"> Männlich&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="geschlecht" value="w" required="required"> Weiblich
         </div>
+        </center>
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Bildlink" name="bild">
         </div>
@@ -45,6 +51,7 @@ if (isset($_GET['create'])) {
         </div>
 
     </form>
+</div>
 <?php
 } //ENDE ISSET VOM ANFANG
 ?>
