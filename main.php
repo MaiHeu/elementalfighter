@@ -48,7 +48,7 @@ if (isset($_GET['text'])) {
 
 		<ul class="nav navbar-nav navbar-right ml-auto">
 			<li class="nav-item active"><a href="#" class="nav-link"><i class="fa fa-home"></i><span>Home</span></a></li>
-			<li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-users"></i><span>Charakter</span></a></li>
+			<li class="nav-item"><a href="charaktercenter.php" target="main_frame" class="nav-link"><i class="fa fa-users"></i><span>Charakter</span></a></li>
 			<li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-gears"></i><span>Training</span></a></li>
 			<li class="nav-item"><a href="messages.php" target="main_frame" class="nav-link"><i class="fa fa-envelope"></i><span>Nachrichten</span></a></li>
 			<li class="nav-item dropdown">
