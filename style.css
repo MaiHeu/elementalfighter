@@ -199,3 +199,53 @@ body {
 .navbar .divider {
     background-color: #e9ecef !important;
 }
+
+
+table.table tr th, table.table tr td {
+    border-color: #e9e9e9;
+}
+table.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fcfcfc;
+}
+.table-wrapper {
+    background: #fff;
+    width: 50%;
+    padding: 10px;
+    margin: 20px 0;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.pagination {
+    margin: 10px 0 5px;
+}
+.pagination li a {
+    border: none;
+    min-width: 30px;
+    min-height: 30px;
+    color: #999;
+    margin: 0 2px;
+    line-height: 20px;
+    border-radius: 4px !important;
+    text-align: center;
+    padding: 0;
+}
+.pagination li a:hover {
+    color: #666;
+}
+.pagination li.active a, .pagination li.active a.page-link {
+    background: #59bdb3;
+}
+.pagination li.active a:hover {        
+    background: #45aba0;
+}
+.pagination li:first-child a, .pagination li:last-child a {
+    padding: 0 10px;
+}
+.pagination li.disabled a {
+    color: #ccc;
+}
+.pagination li i {
+    font-size: 17px;
+    position: relative;
+    top: 1px;
+    margin: 0 2px;
+}
