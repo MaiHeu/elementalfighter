@@ -20,7 +20,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h2>Charaktere</h2>
+			<h2 style="color: white">Charaktere</h2>
 			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
 			<!-- Wrapper for carousel items -->
 			<div class="carousel-inner">

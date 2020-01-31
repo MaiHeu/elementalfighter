@@ -69,7 +69,16 @@
 
 body {
 	font-family: "Open Sans", sans-serif;
-    background: #84DCC6;
+    background-image: url("background.jpg");
+      /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 
 .form-inline {
@@ -221,7 +230,7 @@ table.table-striped tbody tr:nth-of-type(odd) {
     border: none;
     min-width: 30px;
     min-height: 30px;
-    color: #999;
+    color: rgb(255, 255, 255);
     margin: 0 2px;
     line-height: 20px;
     border-radius: 4px !important;
@@ -251,7 +260,7 @@ table.table-striped tbody tr:nth-of-type(odd) {
 }
 
 h2 {
-	color: #000;
+	color: rgb(0, 0, 0);
 	font-size: 26px;
 	font-weight: 300;
 	text-align: center;
@@ -302,21 +311,21 @@ h2::after {
 	margin: 10px 0;
 }
 .carousel .item .btn {
-	color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
     border-radius: 0;
     font-size: 11px;
     text-transform: uppercase;
     font-weight: bold;
     background: none;
-    border: 1px solid rgb(0, 0, 0);
+    border: 1px solid rgb(255, 255, 255);
     padding: 5px 10px;
     margin-top: 5px;
     line-height: 16px;
 }
 .carousel .item .btn:hover, .carousel .item .btn:focus {
-	color: #fff;
-	background: #000;
-	border-color: #000;
+	color: rgb(0, 0, 0);
+	background: rgb(255, 255, 255);
+	border-color: rgb(255, 255, 255);
 	box-shadow: none;
 }
 .carousel .item .btn i {
@@ -328,5 +337,6 @@ h2::after {
 	text-align: center;
 }
 .carousel .thumb-content {
-	padding: 15px;
+    padding: 15px;
+    color: #fff
 }
