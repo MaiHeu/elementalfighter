@@ -4,283 +4,32 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Beautiful Bootstrap Navbar with Menu Icons</title>
+    <title>Project Elemental Fighter</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style type="text/css">
-        body {
-            background: #eeeeee;
-            font-family: 'Varela Round', sans-serif;
-        }
 
-        .form-inline {
-            display: inline-block;
-        }
+    <?php
 
-        .navbar-header.col {
-            padding: 0 !important;
-        }
 
-        .navbar {
-            color: #fff;
-            background: #222222;
-            padding: 5px 16px;
-            border-radius: 0;
-            border: none;
-            box-shadow: 0 0 4px rgba(0, 0, 0, .1);
-        }
+    include("DatabaseHandler.php");
 
-        .navbar img {
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            margin-right: 10px;
-        }
+    if (isset($_COOKIE['ID']) == FALSE) {
+        ?>
+        <script> window.open("login.php", "_self"); </script>
+        <?php
+    }
 
-        .navbar .navbar-brand {
-            color: #efe5ff;
-            padding-left: 0;
-            padding-right: 50px;
-            font-size: 24px;
-        }
+    if (isset($_GET['text'])) {
 
-        .navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
-            color: #fff;
-        }
+    }
 
-        .navbar .navbar-brand i {
-            font-size: 25px;
-            margin-right: 5px;
-        }
+    ?>
 
-        .navbar .nav-item span {
-            position: relative;
-            top: 3px;
-        }
-
-        .navbar .nav > li a {
-            color: #efe5ff;
-            padding: 8px 15px;
-            font-size: 14px;
-        }
-
-        .navbar .nav > li a:hover, .navbar .nav > li a:focus {
-            color: #fff;
-            text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
-        }
-
-        .navbar .nav > li > a > i {
-            display: block;
-            text-align: center;
-        }
-
-        .navbar .dropdown-item i {
-            font-size: 16px;
-            min-width: 22px;
-        }
-
-        .navbar .dropdown-item .material-icons {
-            font-size: 21px;
-            line-height: 16px;
-            vertical-align: middle;
-            margin-top: -2px;
-        }
-
-        .navbar .nav-item.open > a, .navbar .nav-item.open > a:hover, .navbar .nav-item.open > a:focus {
-            color: #fff;
-            background: none !important;
-        }
-
-        .navbar .dropdown-menu {
-            border-radius: 1px;
-            border-color: #e5e5e5;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
-        }
-
-        .navbar .dropdown-menu li a {
-            color: #777 !important;
-            padding: 8px 20px;
-            line-height: normal;
-        }
-
-        .navbar .dropdown-menu li a:hover, .navbar .dropdown-menu li a:focus {
-            color: #333 !important;
-            background: transparent !important;
-        }
-
-        .navbar .nav .active a, .navbar .nav .active a:hover, .navbar .nav .active a:focus {
-            color: #fff;
-            text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
-            background: transparent !important;
-        }
-
-        .navbar .nav .user-action {
-            padding: 9px 15px;
-        }
-
-        .navbar .navbar-toggle {
-            border-color: #fff;
-        }
-
-        .navbar .navbar-toggle .icon-bar {
-            background: #fff;
-        }
-
-        .navbar .navbar-toggle:focus, .navbar .navbar-toggle:hover {
-            background: transparent;
-        }
-
-        .navbar .navbar-nav .open .dropdown-menu {
-            background: #faf7fd;
-            border-radius: 1px;
-            border-color: #faf7fd;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
-        }
-
-        .navbar .divider {
-            background-color: #e9ecef !important;
-        }
-
-    </style>
-    <style type="text/css">
-        body {
-            background: #eeeeee;
-            font-family: 'Varela Round', sans-serif;
-        }
-
-        .form-inline {
-            display: inline-block;
-        }
-
-        .navbar-header.col {
-            padding: 0 !important;
-        }
-
-        .navbar {
-            color: #fff;
-            background: #222222;
-            padding: 5px 16px;
-            border-radius: 0;
-            border: none;
-            box-shadow: 0 0 4px rgba(0, 0, 0, .1);
-        }
-
-        .navbar img {
-            border-radius: 50%;
-            width: 36px;
-            height: 36px;
-            margin-right: 10px;
-        }
-
-        .navbar .navbar-brand {
-            color: #efe5ff;
-            padding-left: 0;
-            padding-right: 50px;
-            font-size: 24px;
-        }
-
-        .navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
-            color: #fff;
-        }
-
-        .navbar .navbar-brand i {
-            font-size: 25px;
-            margin-right: 5px;
-        }
-
-        .navbar .nav-item span {
-            position: relative;
-            top: 3px;
-        }
-
-        .navbar .nav > li a {
-            color: #efe5ff;
-            padding: 8px 15px;
-            font-size: 14px;
-        }
-
-        .navbar .nav > li a:hover, .navbar .nav > li a:focus {
-            color: #fff;
-            text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
-        }
-
-        .navbar .nav > li > a > i {
-            display: block;
-            text-align: center;
-        }
-
-        .navbar .dropdown-item i {
-            font-size: 16px;
-            min-width: 22px;
-        }
-
-        .navbar .dropdown-item .material-icons {
-            font-size: 21px;
-            line-height: 16px;
-            vertical-align: middle;
-            margin-top: -2px;
-        }
-
-        .navbar .nav-item.open > a, .navbar .nav-item.open > a:hover, .navbar .nav-item.open > a:focus {
-            color: #fff;
-            background: none !important;
-        }
-
-        .navbar .dropdown-menu {
-            border-radius: 1px;
-            border-color: #e5e5e5;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
-        }
-
-        .navbar .dropdown-menu li a {
-            color: #777 !important;
-            padding: 8px 20px;
-            line-height: normal;
-        }
-
-        .navbar .dropdown-menu li a:hover, .navbar .dropdown-menu li a:focus {
-            color: #333 !important;
-            background: transparent !important;
-        }
-
-        .navbar .nav .active a, .navbar .nav .active a:hover, .navbar .nav .active a:focus {
-            color: #fff;
-            text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
-            background: transparent !important;
-        }
-
-        .navbar .nav .user-action {
-            padding: 9px 15px;
-        }
-
-        .navbar .navbar-toggle {
-            border-color: #fff;
-        }
-
-        .navbar .navbar-toggle .icon-bar {
-            background: #fff;
-        }
-
-        .navbar .navbar-toggle:focus, .navbar .navbar-toggle:hover {
-            background: transparent;
-        }
-
-        .navbar .navbar-nav .open .dropdown-menu {
-            background: #faf7fd;
-            border-radius: 1px;
-            border-color: #faf7fd;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
-        }
-
-        .navbar .divider {
-            background-color: #e9ecef !important;
-        }
-
-    </style>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-expand-xl navbar-dark">
@@ -298,24 +47,47 @@
     <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 
         <ul class="nav navbar-nav navbar-right ml-auto">
-            <li class="nav-item active"><a href="#" class="nav-link"><i class="fa fa-home"></i><span>Home</span></a>
+            <li class="nav-item active"><a href="home.php" target="main_frame" class="nav-link"><i class="fa fa-home"></i><span>Home</span></a>
             </li>
-            <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-users"></i><span>Charakter</span></a></li>
+            <li class="nav-item"><a href="charaktercenter.php" target="main_frame" class="nav-link"><i
+                            class="fa fa-users"></i><span>Charakter</span></a></li>
             <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-gears"></i><span>Training</span></a></li>
-            <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-envelope"></i><span>Nachrichten</span></a>
-            </li>
+            <li class="nav-item"><a href="messages.php" target="main_frame" class="nav-link"><i
+                            class="fa fa-envelope"></i><span>Nachrichten</span></a></li>
             <li class="nav-item dropdown">
-                <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle user-action"> Testname <b
+                <a href="#" data-toggle="dropdown"
+                   class="nav-link dropdown-toggle user-action"> <?php echo "$_COOKIE[NAME]"; ?> <b
                             class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#" class="dropdown-item"><i class="fa fa-user-o"></i> Profil</a></li>
+                    <li><a href="benutzerloeschen.php" class="dropdown-item"><i class="fa fa-user-o"></i> Profil löschen</a>
+                    </li>
                     <li><a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Einstellungen</a></li>
                     <li class="divider dropdown-divider"></li>
-                    <li><a href="#" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></li>
+                    <li><a href="login.php" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></li>
                 </ul>
             </li>
         </ul>
     </div>
 </nav>
+
+<iframe name="main_frame" src="home.php" height=850 width=100% style="border:0px"></iframe>
+
 </body>
+
+<style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #4b4e6d;
+        color: white;
+        text-align: center;
+    }
+</style>
+
+<div class="footer">
+    <p>© 2019 - M&M Productions</p>
+</div>
+
 </html>                                                        
