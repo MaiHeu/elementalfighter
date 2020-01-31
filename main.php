@@ -47,7 +47,7 @@
     <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 
         <ul class="nav navbar-nav navbar-right ml-auto">
-            <li class="nav-item active"><a href="#" class="nav-link"><i class="fa fa-home"></i><span>Home</span></a>
+            <li class="nav-item active"><a href="home.php" target="main_frame" class="nav-link"><i class="fa fa-home"></i><span>Home</span></a>
             </li>
             <li class="nav-item"><a href="charaktercenter.php" target="main_frame" class="nav-link"><i
                             class="fa fa-users"></i><span>Charakter</span></a></li>
