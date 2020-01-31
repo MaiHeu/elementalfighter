@@ -187,8 +187,8 @@ ALTER TABLE `Charakter`
 -- Constraints der Tabelle `Message`
 --
 ALTER TABLE `Message`
-  ADD CONSTRAINT `messageBenutzer_empfaenger_fk` FOREIGN KEY (`EmpfängerNr`) REFERENCES `Benutzer` (`BenutzerID`) ON DELETE NO ACTION,
-  ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`SenderNr`) REFERENCES `Benutzer` (`BenutzerID`) ON DELETE NO ACTION;
+  ADD CONSTRAINT `messageBenutzer_empfaenger_fk` FOREIGN KEY (`EmpfängerNr`) REFERENCES `Benutzer` (`BenutzerID`) ON DELETE SET NULL,
+  ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`SenderNr`) REFERENCES `Benutzer` (`BenutzerID`) ON DELETE SET NULL;
 
 --
 -- Constraints der Tabelle `ZO_CharakterWerte`
