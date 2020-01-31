@@ -16,7 +16,7 @@
     <br>
 
     Geburtsdatum:
-   <!-- <input type="Geburtsdatum" size="40" maxlength="250" name="gebdat"><br> -->
+    <!-- <input type="Geburtsdatum" size="40" maxlength="250" name="gebdat"><br> -->
     <br>
 
     Geschlecht:
@@ -24,7 +24,7 @@
         <option value="männlich">männlich</option>
         <option value="weiblich">weiblich</option>
     </select>
-        <br><br>
+    <br><br>
     <br>
 
     Bild:

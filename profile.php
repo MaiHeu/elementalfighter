@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 
 <?php
@@ -25,22 +25,22 @@ if (isset($_GET['save'])) {
     ?>
 
 
-<div class="login-form">
-    <form action="?login=1" method="post">
-        <h2 class="text-center">Profil bearbeiten</h2>       
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Nutzername" name="username" required="required">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="Passwort" name="password" required="required">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Speichern</button>
-        </div>
+    <div class="login-form">
+        <form action="?login=1" method="post">
+            <h2 class="text-center">Profil bearbeiten</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Nutzername" name="username" required="required">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Passwort" name="password" required="required">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Speichern</button>
+            </div>
 
-    </form>
-</div>                       		                            
+        </form>
+    </div>
 
-<?php
+    <?php
 }  //ENDE DER IF ISSET VOM ANFANG
 ?>
