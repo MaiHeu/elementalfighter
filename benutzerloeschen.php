@@ -22,7 +22,7 @@ if (isset($_GET['loeschen'])) {
         <script> window.open("login.php", "_self"); </script>   <?php
     } else {
         echo "<center>Falsches Passwort. <br />";
-        echo "<a href=main.php>Zurück zur Startseite</a></center>";
+        echo "<a href=index.php>Zurück zur Startseite</a></center>";
     }
 
 } else {
