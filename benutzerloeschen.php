@@ -12,6 +12,8 @@ if (isset($_GET['loeschen'])) {
     $password = $_POST['password'];
 
     if (password_verify($password, $result[0])) {
+        //$statement = $con->prepare("DELETE FROM `zo_charakterwerte`  WHERE `CharakterNR` = (SELECT CharakterID from Charakter WHERE ?");
+        //$statement->execute([$_COOKIE['ID']]);
         $statement = $con->prepare("DELETE FROM `Charakter`  WHERE `BenutzerNR` = ?");
         $statement->execute([$_COOKIE['ID']]);
         $statement = $con->prepare("DELETE FROM `Benutzer` WHERE `BenutzerID` = ?;");

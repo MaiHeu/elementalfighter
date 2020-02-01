@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 27. Jan 2020 um 00:32
+-- Erstellungszeit: 01. Feb 2020 um 22:21
 -- Server-Version: 10.1.37-MariaDB
 -- PHP-Version: 7.2.12
 
@@ -22,6 +22,8 @@ SET time_zone = "+00:00";
 --
 -- Datenbank: `elementalfighter`
 --
+CREATE DATABASE IF NOT EXISTS `elementalfighter` DEFAULT CHARACTER SET latin1 COLLATE latin1_german1_ci;
+USE `elementalfighter`;
 
 -- --------------------------------------------------------
 
@@ -35,7 +37,9 @@ CREATE TABLE `Benutzer` (
   `E-Mail` varchar(100) COLLATE latin1_german1_ci NOT NULL,
   `Passwort` varchar(100) COLLATE latin1_german1_ci NOT NULL,
   `Mail bestätigt` tinyint(1) NOT NULL DEFAULT '0',
-  `Erstellt am` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `Erstellt am` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Administrator` tinyint(1) DEFAULT NULL,
+  `VerifizierungCode` varchar(255) COLLATE latin1_german1_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_german1_ci;
 
 -- --------------------------------------------------------
@@ -63,8 +67,8 @@ CREATE TABLE `Charakter` (
 
 CREATE TABLE `Message` (
   `MessageID` int(11) NOT NULL,
-  `SenderNr` int(11) NOT NULL,
-  `EmpfängerNr` int(11) NOT NULL,
+  `SenderNr` int(11),
+  `EmpfängerNr` int(11),
   `Datum` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `Betreff` text COLLATE latin1_german1_ci NOT NULL,
   `Nachricht` text COLLATE latin1_german1_ci NOT NULL
@@ -180,22 +184,24 @@ ALTER TABLE `ZO_CharakterWerte`
 -- Constraints der Tabelle `Charakter`
 --
 ALTER TABLE `Charakter`
-  ADD CONSTRAINT `charakter_ibfk_1` FOREIGN KEY (`BenutzerNR`) REFERENCES `Benutzer` (`BenutzerID`),
-  ADD CONSTRAINT `charakter_ibfk_2` FOREIGN KEY (`Eingetr. Training`) REFERENCES `Wertnamen` (`WertnamenID`);
+  ADD CONSTRAINT `charakter_ibfk_1` FOREIGN KEY (`BenutzerNR`) REFERENCES `benutzer` (`BenutzerID`),
+  ADD CONSTRAINT `charakter_ibfk_2` FOREIGN KEY (`Eingetr. Training`) REFERENCES `wertnamen` (`WertnamenID`);
 
 --
 -- Constraints der Tabelle `Message`
 --
 ALTER TABLE `Message`
-  ADD CONSTRAINT `messageBenutzer_empfaenger_fk` FOREIGN KEY (`EmpfängerNr`) REFERENCES `Benutzer` (`BenutzerID`) ON DELETE SET NULL,
-  ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`SenderNr`) REFERENCES `Benutzer` (`BenutzerID`) ON DELETE SET NULL;
+  ADD CONSTRAINT `messageBenutzer_empfaenger_fk` FOREIGN KEY (`EmpfängerNr`) REFERENCES `benutzer` (`BenutzerID`) ON DELETE SET NULL;
+
+ALTER TABLE `Message`
+  ADD CONSTRAINT `message_ibfk_1` FOREIGN KEY (`SenderNr`) REFERENCES `benutzer` (`BenutzerID`) ON DELETE SET NULL;
 
 --
 -- Constraints der Tabelle `ZO_CharakterWerte`
 --
 ALTER TABLE `ZO_CharakterWerte`
-  ADD CONSTRAINT `zo_charakterwerte_ibfk_1` FOREIGN KEY (`CharakterNR`) REFERENCES `Charakter` (`CharakterID`),
-  ADD CONSTRAINT `zo_charakterwerte_ibfk_2` FOREIGN KEY (`WertnamenNR`) REFERENCES `Wertnamen` (`WertnamenID`);
+  ADD CONSTRAINT `zo_charakterwerte_ibfk_1` FOREIGN KEY (`CharakterNR`) REFERENCES `charakter` (`CharakterID`) ON DELETE CASCADE,
+  ADD CONSTRAINT `zo_charakterwerte_ibfk_2` FOREIGN KEY (`WertnamenNR`) REFERENCES `wertnamen` (`WertnamenID`) ON DELETE CASCADE;
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
 

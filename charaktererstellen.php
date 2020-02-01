@@ -18,7 +18,7 @@ if (isset($_GET['create'])) {
 
     //CharakterID feststellen
     $statement = $con->prepare("SELECT CharakterID FROM `Charakter` WHERE BenutzerNR = ?");
-    $statement->execute(array($_COOKIE["ID"]));
+    $statement->execute(array($_COOKIE['ID']));
     $CharakterID = $statement->fetch();
 
     $statement = $con->prepare("INSERT INTO `ZO_CharakterWerte` (`CharakterNR`, `WertnamenNR`, `Wert`) VALUES(?, ?, (SELECT w.Startwert FROM `Wertnamen` w  WHERE WertnamenID = ?))");
