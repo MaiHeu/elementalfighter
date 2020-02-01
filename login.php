@@ -45,7 +45,7 @@ if (isset($_GET['login'])) {
             ?>
 
             <div class="login-form">
-                <form action="main.php">
+                <form action="index.php">
                     <h2 class="text-center">Willkommen zurück!</h2>
                     <div class="form-group">
                         <button class="btn btn-primary btn-block">Weiter</button>
