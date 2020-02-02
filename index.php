@@ -51,7 +51,7 @@
             </li>
             <li class="nav-item"><a href="charaktercenter.php" target="main_frame" class="nav-link"><i
                             class="fa fa-users"></i><span>Charakter</span></a></li>
-            <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-gears"></i><span>Training</span></a></li>
+            <li class="nav-item"><a href="training.php" target="main_frame" class="nav-link"><i class="fa fa-gears"></i><span>Training</span></a></li>
             <li class="nav-item"><a href="messages.php" target="main_frame" class="nav-link"><i
                             class="fa fa-envelope"></i><span>Nachrichten</span></a></li>
             <li class="nav-item dropdown">

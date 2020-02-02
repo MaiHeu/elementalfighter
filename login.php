@@ -27,6 +27,8 @@ if (isset($_GET['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+
+
     session_start();
     $sql = connectToDatabase();
     $sql_statement = "SELECT Passwort FROM benutzer;";
@@ -60,7 +62,6 @@ if (isset($_GET['login'])) {
         $benutzer = retrieveBenutzer($_POST["username"], $sql);
 
         if (password_verify($password, $benutzer[2])) {
-            //print_r("Du bist drin du Spaten");
             setcookie("ID", "$benutzer[0]", null, '/');
             setcookie("Name", "$benutzer[2]", null, '/');
         }
