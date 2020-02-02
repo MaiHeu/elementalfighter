@@ -59,8 +59,8 @@
                             class="fa fa-users"></i><span>Charakter</span></a></li>
 
 
-<?php if($result != NULL) {?>   <li class="nav-item"><a href="training.php" target="main_frame" class="nav-link"><i class="fa fa-gears"></i><span>Trainiere <?php echo $result[0]; ?> für <?php echo $result[1]; ?> Tage</span></a></li>
-<?php } else {?>
+<?php if($result != NULL ) { if($result[1] != 0) {?>   <li class="nav-item"><a href="training.php" target="main_frame" class="nav-link"><i class="fa fa-gears"></i><span>Trainiere <?php echo $result[0]; ?> für <?php echo $result[1]; ?> Tage</span></a></li>
+<?php }} else {?>
                                 <li class="nav-item"><a href="training.php" target="main_frame" class="nav-link"><i class="fa fa-gears"></i><span> Training </span></a></li>
 <?php } ?>
             <li class="nav-item"><a href="messages.php" target="main_frame" class="nav-link"><i
