@@ -1,3 +1,9 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -69,10 +75,14 @@ $anzahlWerte = $statement->fetch();
 $wertname = $con->prepare("SELECT `Name`, `Tägl. Training` FROM `Wertnamen`");
 $wertname->execute();
 ?>
+
+<div class="messageAct-form">
+<form action="?create=1" method="post">
+
 <table>
     <tr>
-        <th>Training</th>
-        <th>Wirkung</th>
+        <th width=30%>Training</th>
+        <th width=30%>Wirkung</th>
         <th>Trainieren</th>
     </tr>
     <?php foreach ($wertname
@@ -90,12 +100,13 @@ $wertname->execute();
 
                 <select class="training" name="<?php print_r("auswahlTrainingstage" . $wert[0]) ?>"></select> Tag(e)
                 <button type="submit" value="<?php print_r($wert[0]); ?>" name="btn_training">Abschicken</button>
-                <br> Oder bis Wert <input type="text" name="<?php print_r("txtTraining" . $wert[0]) ?>"
+                <br> Oder bis Wert <input type="text" size='5' name="<?php print_r("txtTraining" . $wert[0]) ?>"
                                           value="10"><input type="checkbox"
                                                             name="ckbTraining">
             </td>
         </tr>
-        <?php } ?>
+        <?php } print_r($_POST); ?>
+    </form>
     </form>
 </table>
 
@@ -111,5 +122,8 @@ $wertname->execute();
         }
     }
 </script>
+
+</div>
+
 <?php
 }

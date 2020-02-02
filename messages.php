@@ -81,6 +81,7 @@ if (isset($_GET['text'])) {
                 </div>
                 <?php
             }
+            
         }
 
         session_destroy();
