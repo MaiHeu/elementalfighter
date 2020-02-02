@@ -77,18 +77,18 @@ $wertname->execute();
 ?>
 
 <div class="messageAct-form">
-<form action="?create=1" method="post">
+<form action="?train=1" method="post">
 
 <table>
     <tr>
-        <th width=30%>Training</th>
-        <th width=30%>Wirkung</th>
+        <th>Training</th>
+        <th>Wirkung</th>
         <th>Trainieren</th>
     </tr>
     <?php foreach ($wertname
 
     as $wert) { ?>
-    <form action="?train=1" method="post">
+    <form method="post">
         <tr>
             <td>
                 <?php print_r($wert[0]); ?>
@@ -100,12 +100,12 @@ $wertname->execute();
 
                 <select class="training" name="<?php print_r("auswahlTrainingstage" . $wert[0]) ?>"></select> Tag(e)
                 <button type="submit" value="<?php print_r($wert[0]); ?>" name="btn_training">Abschicken</button>
-                <br> Oder bis Wert <input type="text" size='5' name="<?php print_r("txtTraining" . $wert[0]) ?>"
+                <br> Oder bis Wert <input type="text" size=5 name="<?php print_r("txtTraining" . $wert[0]) ?>"
                                           value="10"><input type="checkbox"
                                                             name="ckbTraining">
             </td>
         </tr>
-        <?php } print_r($_POST); ?>
+        <?php } ?>
     </form>
     </form>
 </table>
