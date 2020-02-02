@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 
 <?php
@@ -25,55 +25,54 @@ if (isset($_GET['register'])) {
         if ($sql->query($sql_statement) == FALSE) {
             echo "ERROR COMPLICATED_DATABASE_CONNECTION_ERROR";
         } else {
-            
+
             ?>
-                
+
             <div class="login-form">
                 <form action="login.php">
-                    <h2 class="text-center">Registrierung abgeschlossen!</h2>       
+                    <h2 class="text-center">Registrierung abgeschlossen!</h2>
                     <div class="form-group">
                         <button class="btn btn-primary btn-block">Weiter</button>
                     </div>
-            
+
                 </form>
             </div>
-            
-                            <?php
+
+            <?php
 
         }
-    }
-    else
-    {
+    } else {
         "<h2>Passwords not equal!</h2>";
     }
 } else {
-?>
+    ?>
 
 
-<div class="login-form">
-    <form action="?register=1" method="post">
-        <h2 class="text-center">Registrierung</h2>       
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="Nutzername" name="username" required="required">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="Passwort" name="password1" required="required">
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" placeholder="Passwort wiederholen" name="password2" required="required">
-        </div>
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="E-Mail" name="mail" required="required">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Registrieren</button>
-        </div>
+    <div class="login-form">
+        <form action="?register=1" method="post">
+            <h2 class="text-center">Registrierung</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Nutzername" name="username" required="required">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Passwort" name="password1" required="required">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Passwort wiederholen" name="password2"
+                       required="required">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="E-Mail" name="mail" required="required">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Registrieren</button>
+            </div>
 
-    </form>
-    <p class="text-center"><a href="login.php">Account bereits vorhanden?</a></p>
-</div>
+        </form>
+        <p class="text-center"><a href="login.php">Account bereits vorhanden?</a></p>
+    </div>
 
 
-<?php
+    <?php
 }  //ENDE DER IF ISSET VOM ANFANG
 ?>
