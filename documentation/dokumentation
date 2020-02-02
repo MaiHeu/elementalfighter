@@ -1,0 +1,12 @@
+10.12. Abgabe Projektantrag, einrichten des Repository, DatabaseHandler, Datenbankerstellung
+17.12. Anpassung des Projektantrages und Einarbeitung eines neuen Mitarbeiters
+01.01. Erstellen der Issues
+02.01. Erstellen der Datenbank
+03.01. Anpassen der Datenbank + Schreiben vom login.php
+07.01. login.php objektorientiert
+14.01. krank
+20.01. login.php objektorientierung raus
+21.01. erstellen des createcharakter.php
+26.01. erstellen + fertigstellen von benutzerloeschen, charaktercenter, charaktererstellen, charakterlöschen, tweaken der Datenbank um Anfangswerte zu speichern, tweaken von charaktererstellen, um bei Erstellung Anfangswerte in die ZO_WerteCharakter zu schreiben
+28.01. begin von training.php, Hilfestllung bei sql statements für max
+29.01. fertigstellung training.php, testing der constraints, update der datenbank, testing und debugging von registrierung, anmeldung, charaktererstellung und -löschung
