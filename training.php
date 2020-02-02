@@ -58,6 +58,7 @@ if (isset($_GET['train'])){
         $tageTraining = $_POST[$string];
         $statement = $con->prepare("UPDATE `Charakter` SET `Eingetr. Training` = ?, `Tage Training` = ? WHERE `BenutzerNR` = ?");
         $statement->execute(array($wertnamenID, $tageTraining, $_COOKIE['ID']));
+        echo 'Training eingetragen!';
     }
 
 
