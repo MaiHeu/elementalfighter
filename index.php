@@ -28,6 +28,12 @@
 
     }
 
+    session_start();
+    $sql = connectToDatabase();
+    $statement = $sql->prepare("SELECT w.Name, c.`Tage Training` FROM charakter c JOIN wertnamen w ON c.`Eingetr. Training` = w.WertnamenID JOIN benutzer b ON c.BenutzerNR = ?");
+    $statement->execute(array($_COOKIE['ID']));
+    $result = $statement->fetch();
+
     ?>
 
 </head>
@@ -45,13 +51,18 @@
     </div>
     <!-- Collection of nav links, forms, and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
-
+        <h4> 
         <ul class="nav navbar-nav navbar-right ml-auto">
             <li class="nav-item active"><a href="home.php" target="main_frame" class="nav-link"><i class="fa fa-home"></i><span>Home</span></a>
             </li>
             <li class="nav-item"><a href="charaktercenter.php" target="main_frame" class="nav-link"><i
                             class="fa fa-users"></i><span>Charakter</span></a></li>
-            <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-gears"></i><span>Training</span></a></li>
+
+
+<?php if($result != NULL ) { if($result[1] != 0) {?>   <li class="nav-item"><a href="training.php" target="main_frame" class="nav-link"><i class="fa fa-gears"></i><span>Trainiere <?php echo $result[0]; ?> für <?php echo $result[1]; ?> Tage</span></a></li>
+<?php }} else {?>
+                                <li class="nav-item"><a href="training.php" target="main_frame" class="nav-link"><i class="fa fa-gears"></i><span> Training </span></a></li>
+<?php } ?>
             <li class="nav-item"><a href="messages.php" target="main_frame" class="nav-link"><i
                             class="fa fa-envelope"></i><span>Nachrichten</span></a></li>
             <li class="nav-item dropdown">
@@ -67,6 +78,7 @@
                 </ul>
             </li>
         </ul>
+        </h4>
     </div>
 </nav>
 

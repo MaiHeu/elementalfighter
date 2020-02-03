@@ -11,7 +11,7 @@ include("DatabaseHandler.php");
 
 if (isset($_GET['text'])) {
 
-    $message = $_POST['message'];
+    $message = $_POST['message'] . "<br><i>Gesendet von: " . $_COOKIE['NAME'] . "</i>";
     $receiver = $_POST['receiver'];
     $subject = $_POST['subject'];
 
@@ -54,6 +54,7 @@ if (isset($_GET['text'])) {
         session_start();
         $sql = connectToDatabase();
 
+
         $sth = $sql->prepare("SELECT * FROM message m WHERE m.EmpfängerNr = $_COOKIE[ID]");
         $sth->execute();
 
@@ -73,12 +74,14 @@ if (isset($_GET['text'])) {
                 <div class="messageAct-form">
                     <form action="?text=1" method="post">
                         <h2 class="text-center">  <?php echo $messageData[4]; ?> </h2>
+                        <br>
                         <?php echo $messageData[5]; ?> <br>
                         <i>Empfangen am: <?php echo $messageData[3]; ?> </i>
                     </form>
                 </div>
                 <?php
             }
+            
         }
 
         session_destroy();

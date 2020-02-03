@@ -1,3 +1,9 @@
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -52,12 +58,17 @@ if (isset($_GET['train'])){
 
         $statement = $con->prepare("UPDATE `Charakter` SET `Eingetr. Training` = ?, `Tage Training` = ? WHERE `BenutzerNR` = ?");
         $statement->execute(array($wertnamenID, $tageTraining, $_COOKIE['ID']));
-        echo 'Training eingetragen!';
+        ?>
+        <script> parent.location.reload(); </script>
+        <?php
     } else {
         $string = "auswahlTrainingstage" . $_POST['btn_training'];
         $tageTraining = $_POST[$string];
         $statement = $con->prepare("UPDATE `Charakter` SET `Eingetr. Training` = ?, `Tage Training` = ? WHERE `BenutzerNR` = ?");
         $statement->execute(array($wertnamenID, $tageTraining, $_COOKIE['ID']));
+        ?>
+        <script> parent.location.reload(); </script>
+        <?php
     }
 
 
@@ -69,6 +80,10 @@ $anzahlWerte = $statement->fetch();
 $wertname = $con->prepare("SELECT `Name`, `Tägl. Training` FROM `Wertnamen`");
 $wertname->execute();
 ?>
+
+<div class="messageAct-form">
+<form action="?train=1" method="post">
+
 <table>
     <tr>
         <th>Training</th>
@@ -78,7 +93,7 @@ $wertname->execute();
     <?php foreach ($wertname
 
     as $wert) { ?>
-    <form action="?train=1" method="post">
+    <form method="post">
         <tr>
             <td>
                 <?php print_r($wert[0]); ?>
@@ -90,12 +105,13 @@ $wertname->execute();
 
                 <select class="training" name="<?php print_r("auswahlTrainingstage" . $wert[0]) ?>"></select> Tag(e)
                 <button type="submit" value="<?php print_r($wert[0]); ?>" name="btn_training">Abschicken</button>
-                <br> Oder bis Wert <input type="text" name="<?php print_r("txtTraining" . $wert[0]) ?>"
+                <br> Oder bis Wert <input type="text" size=5 name="<?php print_r("txtTraining" . $wert[0]) ?>"
                                           value="10"><input type="checkbox"
                                                             name="ckbTraining">
             </td>
         </tr>
         <?php } ?>
+    </form>
     </form>
 </table>
 
@@ -111,5 +127,8 @@ $wertname->execute();
         }
     }
 </script>
+
+</div>
+
 <?php
 }
