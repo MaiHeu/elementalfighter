@@ -1,11 +1,31 @@
 <?php
 include ("DatabaseHandler.php");
 
-$statement = $con->prepare("SELECT Administrator FROM `Benutzer` WHERE `BenutzerID` = ?");
-$statement->execute(array($_COOKIE['ID']));
-$isAdmin = $statement->fetch();
+$statement = $con->prepare("UPDATE ZO_CharakterWerte zo
+JOIN charakter c on zo.charakternr = c.charakterid
+JOIN wertnamen w on zo.wertnamennr = w.wertnamenid
+SET zo.Wert = zo.Wert + w.`tägl. training`
+WHERE c.`Eingetr. Training` = `WertnamenNR` AND
+c.CharakterID = `CharakterNR` AND
+c.`Tage Training` IS NOT NULL");
+$statement->execute();
 
-/* UPDATE ZO_CharakterWerte
+$statement = $con->prepare("UPDATE charakter
+  SET `Tage Training` =
+    CASE
+      WHEN `Tage Training`-1 = '0' THEN null
+      ELSE `Tage Training`-1
+    END,
+  `Eingetr. Training` =
+    CASE
+      WHEN `Tage Training` = '0' THEN null
+      ELSE `Eingetr. Training`
+    END
+WHERE 1");
+$statement->execute();
+
+echo "Update durchgeführt!";
+/*
 
 UPDATE ZO_CharakterWerte zo
 JOIN charakter c on zo.charakternr = c.charakterid
@@ -41,8 +61,6 @@ WHERE 1
  *      user.eingetr. training = null
  * */
 
+
+
 ?>
-
-<form action="?update" method="post">
-
-</form>

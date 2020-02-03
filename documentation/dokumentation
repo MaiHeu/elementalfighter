@@ -8,6 +8,6 @@
 20.01. login.php Objektorientierung raus
 21.01. erstellen des createcharakter.php
 26.01. erstellen + fertigstellen von benutzerloeschen, charaktercenter, charaktererstellen, charakterlöschen, tweaken der Datenbank um Anfangswerte zu speichern, tweaken von charaktererstellen, um bei Erstellung Anfangswerte in die ZO_WerteCharakter zu schreiben
-28.01. Beginn von training.php, Hilfestllung bei sql statements für max
+28.01. Beginn von training.php, Hilfestllung bei sql Statements für Max
 01.02. Fertigstellung training.php, Testing der Constraints, update der Datenbank, Testing und Debugging von Registrierung, Anmeldung, Charaktererstellung und -löschung
-03.02. Fertigstellung des Update Scripts und einpflegen in die Datenbank als Event
+03.02. Fertigstellung des Update Scripts und Einpflegen in die Datenbank als Event
