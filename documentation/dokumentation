@@ -9,4 +9,5 @@
 21.01. erstellen des createcharakter.php
 26.01. erstellen + fertigstellen von benutzerloeschen, charaktercenter, charaktererstellen, charakterlöschen, tweaken der Datenbank um Anfangswerte zu speichern, tweaken von charaktererstellen, um bei Erstellung Anfangswerte in die ZO_WerteCharakter zu schreiben
 28.01. begin von training.php, Hilfestllung bei sql statements für max
-29.01. fertigstellung training.php, testing der constraints, update der datenbank, testing und debugging von registrierung, anmeldung, charaktererstellung und -löschung
+01.02. fertigstellung training.php, testing der constraints, update der datenbank, testing und debugging von registrierung, anmeldung, charaktererstellung und -löschung
+03.02. fertigstellung des uüdate scriptes und einpflegen in die datenbank als event
