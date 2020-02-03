@@ -1,3 +1,4 @@
+- Maik
 10.12. Abgabe Projektantrag, einrichten des Repository, DatabaseHandler, Datenbankerstellung
 17.12. Anpassung des Projektantrages und Einarbeitung eines neuen Mitarbeiters
 01.01. Erstellen der Issues
@@ -11,3 +12,16 @@
 28.01. Beginn von training.php, Hilfestllung bei sql statements für max
 01.02. Fertigstellung training.php, Testing der Constraints, update der Datenbank, Testing und Debugging von Registrierung, Anmeldung, Charaktererstellung und -löschung
 03.02. Fertigstellung des Update Scripts und einpflegen in die Datenbank als Event
+
+- Max
+17.12.2019 – Einrichtung von Git, erster Commit und Push
+3.01.2019 – Schreiben von Register.php, Datenbankzugriff über DatabaseHandler.php
+20.02.2020 – Überarbeitung der Login.php
+21.01.2020 – Hauptseiten per Bootstrap mit Design versehen; Entwicklung der Menüleiste
+26.01.2020 – Logout nun funktionsfähig; Einige Falscheingaben werden nun abgefangen
+27.01.2020 – Nachrichtensystem geschrieben, neue Dokumente seitens Maik per Bootstrap überarbeitet
+29.01.2020 – Der Charaktercenter wird nun per Bootstrap dargestellt
+30.01.2020 – Startseite zeigt jetzt alle registrierten Charaktere
+31.01.2020 – Hintergrundbild hinzugefügt, Farbgebung entsprechend nachgebessert
+01.02.2020 – Training.php wird nun mit Bootstrap dargestellt; Nachrichten zeigen jetzt Sender
+02.02.2020 – Training-Button zeigt jetzt Tage bis Ende des Trainings; register_copy als alternative Variante des Registrierungs-Dokuments, welche die E-Mail Verifizierung implementiert
