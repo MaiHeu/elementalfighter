@@ -27,8 +27,6 @@ if (isset($_GET['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-
-
     session_start();
     $sql = connectToDatabase();
     $sql_statement = "SELECT Passwort FROM benutzer;";
@@ -51,6 +49,22 @@ if (isset($_GET['login'])) {
                     <h2 class="text-center">Willkommen zurück!</h2>
                     <div class="form-group">
                         <button class="btn btn-primary btn-block">Weiter</button>
+                    </div>
+
+                </form>
+            </div>
+
+            <?php
+        }
+        else
+        {
+            ?>
+
+            <div class="login-form">
+                <form action="login.php">
+                    <h2 class="text-center">Passwort oder Nutzername falsch!</h2>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block">Zurück</button>
                     </div>
 
                 </form>
