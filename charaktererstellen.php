@@ -28,7 +28,7 @@ if (isset($_GET['create'])) {
         $j++;
     }
     $con = 0;
-    echo "<p>Erstellung erfolgreich. <a href='index.php'>Klicke hier um zur Hauptseite zurückzukehren.</a></p>";
+    ?><div style="background-color: #FFFFFF"><p>Erstellung erfolgreich. <a href='index.php'>Klicke hier um zur Hauptseite zurückzukehren.</a></p></div> <?php
 } else {
     ?>
     <div class="login-form">

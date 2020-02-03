@@ -13,10 +13,9 @@ if (isset($_GET['loeschen'])) {
     if (password_verify($password, $result[0])) {
         $statement = $con->prepare("DELETE FROM `Charakter` WHERE `BenutzerNR` = ?");
         $statement->execute([$_COOKIE['ID']]);
-        echo "Charakter gelöscht. <a href=charaktererstellen.phpcharaktererstellen.php>Hier gehts zur Charaktererstellung</a>";
+        ?><div style="background-color: #FFFFFF"> "Charakter gelöscht. <a href=charaktererstellen.php>Hier gehts zur Charaktererstellung</a></div> <?php
     } else {
-        echo "Falsches Passwort. <br />";
-        echo "<a href= charakterloeschen.php>Zurück</a>";
+        ?><div style="background-color: #FFFFFF">Falsches Passwort. <br /> <a href= charakterloeschen.php>Zurück</a></div> <?php
     }
 
 } else {

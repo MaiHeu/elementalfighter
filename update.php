@@ -1,5 +1,6 @@
 <?php
 include ("DatabaseHandler.php");
+/* NUR ZUM DEBUG! Führt das Datenbankupdate aus, welches ansonsten das Event übernimmt. */
 
 $statement = $con->prepare("UPDATE ZO_CharakterWerte zo
 JOIN charakter c on zo.charakternr = c.charakterid
