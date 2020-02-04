@@ -59,7 +59,7 @@ if (isset($_GET['train'])){
         $statement = $con->prepare("UPDATE `Charakter` SET `Eingetr. Training` = ?, `Tage Training` = ? WHERE `BenutzerNR` = ?");
         $statement->execute(array($wertnamenID, $tageTraining, $_COOKIE['ID']));
         ?>
-        <script> parent.location.reload(); </script>
+        <script> parent.location.replace("index.php"); </script>
         <?php
     } else {
         $string = "auswahlTrainingstage" . $_POST['btn_training'];
@@ -67,7 +67,7 @@ if (isset($_GET['train'])){
         $statement = $con->prepare("UPDATE `Charakter` SET `Eingetr. Training` = ?, `Tage Training` = ? WHERE `BenutzerNR` = ?");
         $statement->execute(array($wertnamenID, $tageTraining, $_COOKIE['ID']));
         ?>
-        <script> parent.location.reload(); </script>
+        <script> parent.location.replace("index.php"); </script>
         <?php
     }
 

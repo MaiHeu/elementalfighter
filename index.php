@@ -59,10 +59,10 @@
                             class="fa fa-users"></i><span>Charakter</span></a></li>
 
 
-<?php if($result != NULL ) { if($result[1] != 0) {?>   <li class="nav-item"><a href="training.php" target="main_frame" class="nav-link"><i class="fa fa-gears"></i><span>Trainiere <?php echo $result[0]; ?> für <?php echo $result[1]; ?> Tage</span></a></li>
-<?php }} else {?>
+<?php if($result[1] != null) {?>   <li class="nav-item"><a href="training.php" target="main_frame" class="nav-link"><i class="fa fa-gears"></i><span>Trainiere <?php echo $result[0]; ?> für <?php echo $result[1]; ?> Tage</span></a></li>
+<?php } else {?>
                                 <li class="nav-item"><a href="training.php" target="main_frame" class="nav-link"><i class="fa fa-gears"></i><span> Training </span></a></li>
-<?php } ?>
+<?php }?>
             <li class="nav-item"><a href="messages.php" target="main_frame" class="nav-link"><i
                             class="fa fa-envelope"></i><span>Nachrichten</span></a></li>
             <li class="nav-item dropdown">
@@ -70,9 +70,7 @@
                    class="nav-link dropdown-toggle user-action"> <?php echo "$_COOKIE[NAME]"; ?> <b
                             class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="benutzerloeschen.php" class="dropdown-item"><i class="fa fa-user-o"></i> Profil löschen</a>
-                    </li>
-                    <li><a href="#" class="dropdown-item"><i class="fa fa-sliders"></i> Einstellungen</a></li>
+                    <li><a href="benutzerloeschen.php" class="dropdown-item"><i class="fa fa-user-o"></i> Profil löschen</a></li>
                     <li class="divider dropdown-divider"></li>
                     <li><a href="login.php" class="dropdown-item"><i class="material-icons">&#xE8AC;</i> Logout</a></li>
                 </ul>
